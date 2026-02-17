@@ -143,15 +143,21 @@ app.post('/api/buy-ticket', async (req, res) => {
                     if (!error) {
                         insertedTicket = data;
                         generatedIds.push(data.id);
-                    } else if (error.code !== '23505') {
-                        // If not unique violation, stop everything
-                        console.error('Critical DB Error:', error);
-                        // We continue to try others, or break? 
-                        // If we break, user might panic. Best to try all.
+                        console.log(`✅ Ticket ${i + 1}/${qty} inserted: ID ${data.id}`);
+                    } else {
+                        console.error(`❌ Ticket ${i + 1}/${qty} attempt ${attempts} failed:`, error.code, error.message);
+                        if (error.code !== '23505') {
+                            // If not unique ID violation, this is a critical error
+                            console.error('Critical DB Error (not duplicate ID):', error);
+                        }
                     }
                 } catch (err) {
-                    console.error('Insert loop error:', err);
+                    console.error(`❌ Insert loop error for ticket ${i + 1}:`, err);
                 }
+            }
+
+            if (!insertedTicket) {
+                console.error(`⚠️  Failed to insert ticket ${i + 1}/${qty} after 5 attempts`);
             }
         }
 
