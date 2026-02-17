@@ -99,15 +99,14 @@ app.post('/api/buy-ticket', async (req, res) => {
             return res.status(400).json({ success: false, message: `Not enough tickets remaining. Only ${MAX_TICKETS - count} left.` });
         }
 
-        // B. Check if signature already used
-        const { data: existing } = await supabase
+        // B. Check if signature already used (for this exact quantity to prevent double-processing)
+        const { data: existingTickets } = await supabase
             .from('tickets')
             .select('id')
-            .eq('tx_signature', txSignature)
-            .single();
+            .eq('tx_signature', txSignature);
 
-        if (existing) {
-            return res.status(400).json({ success: false, message: 'Transaction already used' });
+        if (existingTickets && existingTickets.length >= qty) {
+            return res.status(400).json({ success: false, message: 'Transaction already processed' });
         }
 
         // C. Verify on-chain (Total Amount = Quantity * 2 USDC)
