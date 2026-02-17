@@ -1,1 +1,1 @@
-web: cd raffle-system/backend && node server.js
+web: node server.js
