@@ -70,7 +70,7 @@ const HeroSlider = () => {
     };
 
     return (
-        <div className="relative w-full h-[380px] sm:h-[500px] flex items-center justify-center pt-16 md:pt-24 mt-12 md:mt-0">
+        <div className="relative w-full h-[480px] sm:h-[500px] flex items-center justify-center pt-16 md:pt-24 mt-8 md:mt-0">
             {/* Glow Effect */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-gradient-to-tr from-hollow-pink/20 to-hollow-cyan/20 blur-[100px] rounded-full animate-pulse-glow z-0 pointer-events-none"></div>
 
@@ -89,11 +89,11 @@ const HeroSlider = () => {
                 </div>
             ))}
 
-            <div className="absolute bottom-[-110px] md:bottom-[-90px] left-0 right-0 text-center z-30 transition-all duration-700 px-4">
+            <div className="absolute bottom-[0px] md:bottom-[-60px] left-0 right-0 text-center z-30 transition-all duration-700 px-4">
                 <div className="inline-block px-3 py-1 bg-hollow-cyan/10 backdrop-blur-xl border border-hollow-cyan/30 text-hollow-cyan rounded-full text-[9px] md:text-xs font-bold tracking-widest uppercase mb-3 shadow-[0_0_15px_rgba(34,211,238,0.2)]">
                     {slides[activeIndex].label}
                 </div>
-                <h3 className="text-sm md:text-xl font-bold text-white brand-font drop-shadow-2xl max-w-[280px] md:max-w-xl mx-auto leading-tight md:leading-snug animate-fade-in px-2">
+                <h3 className="text-sm md:text-xl font-bold text-white brand-font drop-shadow-2xl max-w-[300px] md:max-w-xl mx-auto leading-tight md:leading-snug animate-fade-in px-2">
                     {slides[activeIndex].title}
                 </h3>
             </div>
