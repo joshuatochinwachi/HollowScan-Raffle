@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import WalletButton from '../components/WalletButton';
 import BuyTicketButton from '../components/BuyTicketButton';
+import HeroSlider from '../components/HeroSlider';
 import { useWallet } from '@solana/wallet-adapter-react';
 
 export default function Home() {
@@ -183,29 +184,9 @@ export default function Home() {
                         </div>
                     </div>
 
-                    {/* Right: Floating Card */}
-                    <div className="flex-1 flex justify-center relative">
-                        {/* Glow behind card */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-hollow-pink/40 to-hollow-cyan/40 blur-[60px] rounded-full animate-pulse-glow"></div>
-
-                        <div className="relative group perspective hover:scale-105 transition-transform duration-500 animate-float">
-                            <div className="absolute -inset-1 bg-gradient-to-r from-hollow-pink via-hollow-purple to-hollow-cyan rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-                            <div className="relative w-[280px] h-[420px] sm:w-[320px] sm:h-[500px] bg-gray-900 rounded-xl overflow-hidden shadow-2xl border border-gray-700/50">
-                                <img
-                                    src="/hollow_jean.jpg"
-                                    alt="Hollow Charizard Prize"
-                                    className="object-cover w-full h-full"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80"></div>
-
-                                <div className="absolute bottom-6 left-0 right-0 text-center">
-                                    <div className="inline-block px-3 py-1 bg-hollow-cyan/20 border border-hollow-cyan text-hollow-cyan rounded-lg text-xs font-bold tracking-widest uppercase mb-2">
-                                        PSA 10 Gem Mint
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-white brand-font">Charizard 1st Edition</h3>
-                                </div>
-                            </div>
-                        </div>
+                    {/* Right: Floating Card Slider */}
+                    <div className="flex-1 flex justify-center relative w-full z-0">
+                        <HeroSlider />
                     </div>
                 </div>
 
