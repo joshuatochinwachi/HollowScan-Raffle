@@ -2,9 +2,21 @@ import { useState, useEffect } from 'react';
 
 const HeroSlider = () => {
     const slides = [
-        { src: '/pack_venusaur.jpg', title: 'Venusaur Edition', label: 'Black Triangle Error' },
-        { src: '/pack_charizard.jpg', title: 'Charizard Edition', label: 'PSA 10 GEM MINT' },
-        { src: '/pack_blastoise.jpg', title: 'Blastoise Edition', label: 'Black Triangle Error' }
+        {
+            src: '/pack_venusaur.jpg',
+            title: 'Sequential Pokemon Booster Pack 1st Ed BLACK TRIANGLE ERROR Art Set - PSA 10! Charizard) SEALED Pack',
+            label: '1st Edition Error Art'
+        },
+        {
+            src: '/pack_charizard.jpg',
+            title: 'PSA 10 GEM MINT Base Set (Charizard) SEALED Pack BLACK TRIANGLE ERROR Pokemon',
+            label: 'PSA 10 GEM MINT'
+        },
+        {
+            src: '/pack_blastoise.jpg',
+            title: 'Wizards of the Coast Pokémon Trading Card Blister',
+            label: 'WOTC Blister Pack'
+        }
     ];
 
     const [activeIndex, setActiveIndex] = useState(1); // Start with Charizard (middle)
@@ -66,11 +78,13 @@ const HeroSlider = () => {
                 </div>
             ))}
 
-            <div className="absolute bottom-[-60px] left-0 right-0 text-center z-30 transition-all duration-500">
-                <div className="inline-block px-3 py-1 bg-black/60 backdrop-blur-md border border-hollow-cyan/50 text-hollow-cyan rounded-lg text-xs font-bold tracking-widest uppercase mb-2 shadow-lg">
+            <div className="absolute bottom-[-100px] md:bottom-[-80px] left-0 right-0 text-center z-30 transition-all duration-500 px-6">
+                <div className="inline-block px-3 py-1 bg-black/60 backdrop-blur-md border border-hollow-cyan/50 text-hollow-cyan rounded-lg text-[10px] md:text-xs font-bold tracking-widest uppercase mb-2 shadow-lg">
                     {slides[activeIndex].label}
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white brand-font drop-shadow-lg">{slides[activeIndex].title}</h3>
+                <h3 className="text-xs md:text-xl font-bold text-white brand-font drop-shadow-lg max-w-xl mx-auto leading-tight">
+                    {slides[activeIndex].title}
+                </h3>
             </div>
         </div>
     );
