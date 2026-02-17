@@ -4,7 +4,7 @@ const HeroSlider = () => {
     const slides = [
         {
             src: '/pack_venusaur.jpg',
-            title: 'Sequential Pokemon Booster Pack 1st Ed BLACK TRIANGLE ERROR Art Set - PSA 10! Charizard) SEALED Pack',
+            title: 'Sequential Pokemon Booster Pack 1st Ed BLACK TRIANGLE ERROR Art Set - PSA 10 (Charizard) SEALED Pack',
             label: '1st Edition Error Art'
         },
         {

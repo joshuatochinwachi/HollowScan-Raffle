@@ -88,8 +88,8 @@ export default function Home() {
     return (
         <div className="min-h-screen flex flex-col items-center relative overflow-hidden text-white selection:bg-hollow-pink selection:text-white">
             <Head>
-                <title>Hollow Raffle | Win a PSA 10 Charizard</title>
-                <meta name="description" content="Enter the HollowScan Raffle!" />
+                <title>Hollow Raffle | Win the Ultimate 3-Pack Set</title>
+                <meta name="description" content="Win 3 sequential PSA 10 1st Edition and Base Set packs in the Hollow Raffle!" />
                 <link rel="icon" href="/favicon.png" />
             </Head>
 
@@ -124,7 +124,7 @@ export default function Home() {
 
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black leading-tight brand-font mb-6 drop-shadow-2xl">
                             WIN THE <br />
-                            <span className="pokemon-gradient-text text-glow">HOLLOW CHARIZARD</span>
+                            <span className="pokemon-gradient-text text-glow">ULTIMATE 3-PACK SET</span>
                         </h1>
 
                         {/* Countdown Timer */}
@@ -145,7 +145,7 @@ export default function Home() {
 
 
                         <p className="text-gray-300 text-sm md:text-lg lg:text-xl mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
-                            Own a piece of history. A pristine <b>PSA 10 Gem Mint</b> First Edition Charizard. Verified on-chain, fair distribution, exclusively on HollowScan.
+                            One lucky winner takes <b>ALL THREE</b> historic treasures. A pristine set of Sequential 1st Ed & Base Set packs. Verified on-chain, exclusively on HollowScan.
                         </p>
 
                         <div className="flex flex-col items-center md:items-start gap-4">
