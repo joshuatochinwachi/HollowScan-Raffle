@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["nodejs_18"]
+
+[phases.install]
+cmds = ["cd raffle-system/backend && npm install"]
+
+[start]
+cmd = "cd raffle-system/backend && node server.js"
