@@ -1,0 +1,11 @@
+{
+    "name": "hollowscan-raffle",
+    "version": "1.0.0",
+    "scripts": {
+        "install": "cd raffle-system/backend && npm install",
+        "start": "cd raffle-system/backend && node server.js"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}
