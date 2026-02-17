@@ -67,10 +67,10 @@ export default function BuyTicketButton({ onPurchaseSuccess }) {
         <div className="flex flex-col items-center gap-6 w-full">
 
             {/* Quantity Selector */}
-            <div className="flex items-center gap-4 bg-gray-900/50 p-2 rounded-xl border border-gray-700">
+            <div className="flex items-center gap-2 md:gap-4 bg-gray-900/50 p-1.5 md:p-2 rounded-xl border border-gray-700">
                 <button
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="w-10 h-10 rounded-lg bg-gray-800 hover:bg-hollow-pink/20 text-white font-bold transition"
+                    className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-gray-800 hover:bg-hollow-pink/20 text-white font-bold transition flex items-center justify-center"
                     disabled={loading || quantity <= 1}
                 >
                     -

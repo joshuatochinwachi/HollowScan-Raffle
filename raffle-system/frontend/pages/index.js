@@ -100,10 +100,10 @@ export default function Home() {
             </div>
 
             {/* Navbar */}
-            <header className="w-full max-w-7xl p-6 flex justify-between items-center z-50">
-                <div className="glass-panel px-6 py-3 rounded-full flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-hollow-pink animate-pulse"></div>
-                    <span className="text-2xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 brand-font">
+            <header className="w-full max-w-7xl p-4 md:p-6 flex justify-between items-center z-50">
+                <div className="glass-panel px-3 md:px-6 py-2 md:py-3 rounded-full flex items-center gap-2 md:gap-3">
+                    <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-hollow-pink animate-pulse"></div>
+                    <span className="text-sm md:text-2xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 brand-font">
                         HOLLOW RAFFLE
                     </span>
                 </div>
@@ -121,29 +121,29 @@ export default function Home() {
                             Live on Solana Mainnet
                         </div>
 
-                        <h1 className="text-6xl md:text-8xl font-black leading-tight brand-font mb-6 drop-shadow-2xl">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black leading-tight brand-font mb-6 drop-shadow-2xl">
                             WIN THE <br />
                             <span className="pokemon-gradient-text text-glow">HOLLOW CHARIZARD</span>
                         </h1>
 
                         {/* Countdown Timer */}
-                        <div className="flex gap-4 mb-8">
+                        <div className="flex gap-2 md:gap-4 mb-8 justify-center md:justify-start">
                             {[
                                 { label: 'Days', value: timeLeft.days },
                                 { label: 'Hours', value: timeLeft.hours },
                                 { label: 'Minutes', value: timeLeft.minutes },
                                 { label: 'Seconds', value: timeLeft.seconds }
                             ].map((item, i) => (
-                                <div key={i} className="flex flex-col items-center bg-black/40 border border-gray-700 p-3 rounded-lg min-w-[70px] backdrop-blur-sm">
-                                    <span className="text-2xl font-bold font-mono text-hollow-cyan">{String(item.value).padStart(2, '0')}</span>
-                                    <span className="text-xs text-gray-400 uppercase tracking-wider">{item.label}</span>
+                                <div key={i} className="flex flex-col items-center bg-black/40 border border-gray-700 p-2 md:p-3 rounded-lg min-w-[60px] md:min-w-[70px] backdrop-blur-sm">
+                                    <span className="text-xl md:text-2xl font-bold font-mono text-hollow-cyan">{String(item.value).padStart(2, '0')}</span>
+                                    <span className="text-[10px] md:text-xs text-gray-400 uppercase tracking-wider">{item.label}</span>
                                 </div>
                             ))}
                         </div>
 
 
 
-                        <p className="text-gray-300 text-lg md:text-xl mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
+                        <p className="text-gray-300 text-sm md:text-lg lg:text-xl mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
                             Own a piece of history. A pristine <b>PSA 10 Gem Mint</b> First Edition Charizard. Verified on-chain, fair distribution, exclusively on HollowScan.
                         </p>
 
@@ -190,7 +190,7 @@ export default function Home() {
 
                         <div className="relative group perspective hover:scale-105 transition-transform duration-500 animate-float">
                             <div className="absolute -inset-1 bg-gradient-to-r from-hollow-pink via-hollow-purple to-hollow-cyan rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-                            <div className="relative w-[320px] h-[500px] bg-gray-900 rounded-xl overflow-hidden shadow-2xl border border-gray-700/50">
+                            <div className="relative w-[280px] h-[420px] sm:w-[320px] sm:h-[500px] bg-gray-900 rounded-xl overflow-hidden shadow-2xl border border-gray-700/50">
                                 <img
                                     src="/hollow_jean.jpg"
                                     alt="Hollow Charizard Prize"
