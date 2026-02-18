@@ -18,31 +18,31 @@ const HeroSlider = () => {
 
             {/* Flipped Card Container */}
             <div
-                className="relative w-[280px] h-[420px] sm:w-[320px] sm:h-[480px] transition-all duration-1000 preserve-3d cursor-pointer group"
-                style={{ transform: `perspective(1000px) rotateY(${isFlipped ? '180deg' : '0deg'})` }}
+                className="relative w-[260px] h-[390px] sm:w-[340px] sm:h-[510px] transition-all duration-1000 preserve-3d cursor-pointer group"
+                style={{ transform: `perspective(1200px) rotateY(${isFlipped ? '180deg' : '0deg'})` }}
                 onClick={() => setIsFlipped(!isFlipped)}
             >
                 {/* Front Side */}
-                <div className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden border border-white/10 bg-gray-900 shadow-2xl">
+                <div className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden border border-white/20 bg-black shadow-2xl">
                     <img
                         src="/charizard_bgs_front.jpg"
                         alt="BGS 7.5 Charizard Front"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain p-2"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-40"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-30 pointer-events-none"></div>
                 </div>
 
                 {/* Back Side */}
                 <div
-                    className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden border border-white/10 bg-gray-900 shadow-2xl"
+                    className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden border border-white/20 bg-black shadow-2xl"
                     style={{ transform: 'rotateY(180deg)' }}
                 >
                     <img
                         src="/charizard_bgs_back.jpg"
                         alt="BGS 7.5 Charizard Back"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain p-2"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-40"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-30 pointer-events-none"></div>
                 </div>
             </div>
 
