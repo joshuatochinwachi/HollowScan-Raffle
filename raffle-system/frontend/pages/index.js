@@ -88,8 +88,8 @@ export default function Home() {
     return (
         <div className="min-h-screen flex flex-col items-center relative overflow-hidden text-white selection:bg-hollow-pink selection:text-white">
             <Head>
-                <title>Hollow Raffle | Win the Ultimate 3-Pack Set</title>
-                <meta name="description" content="Win 3 sequential PSA 10 1st Edition and Base Set packs in the Hollow Raffle!" />
+                <title>Hollow Raffle | Win the BGS 7.5 1st Edition Charizard</title>
+                <meta name="description" content="Win a BGS 7.5 Near Mint+ 1st Edition Charizard worth £19,299.00!" />
                 <link rel="icon" href="/favicon.png" />
             </Head>
 
@@ -122,9 +122,9 @@ export default function Home() {
                             Live on Solana Mainnet
                         </div>
 
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black leading-tight brand-font mb-6 drop-shadow-2xl">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black leading-tight brand-font mb-6 drop-shadow-2xl uppercase">
                             WIN THE <br />
-                            <span className="pokemon-gradient-text text-glow">ULTIMATE 3-PACK SET</span>
+                            <span className="pokemon-gradient-text text-glow">1ST EDITION CHARIZARD</span>
                         </h1>
 
                         {/* Countdown Timer */}
@@ -145,7 +145,7 @@ export default function Home() {
 
 
                         <p className="text-gray-300 text-sm md:text-lg lg:text-xl mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
-                            One lucky winner takes <b>ALL THREE</b> historic treasures. A pristine set of Sequential 1st Ed & Base Set packs. Verified on-chain, exclusively on HollowScan.
+                            Own one of the rarest collectibles in history. A <b>BGS 7.5 Near Mint+</b> First Edition Charizard Holo. Valued at <b className="text-hollow-cyan">£19,299.00</b>. Verified on-chain, exclusively on HollowScan.
                         </p>
 
                         <div className="flex flex-col items-center md:items-start gap-4">
