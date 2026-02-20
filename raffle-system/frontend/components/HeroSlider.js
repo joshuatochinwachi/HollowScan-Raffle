@@ -61,7 +61,7 @@ const HeroSlider = () => {
                 <div className="mt-6 flex flex-col items-center gap-1">
                     <span className="text-gray-400 text-[10px] md:text-xs font-bold tracking-widest uppercase">Current Market Value</span>
                     <div className="text-4xl md:text-6xl font-black pokemon-gradient-text text-glow animate-pulse tracking-tighter">
-                        £19,299.00
+                        $26,000.00
                     </div>
                 </div>
             </div>
