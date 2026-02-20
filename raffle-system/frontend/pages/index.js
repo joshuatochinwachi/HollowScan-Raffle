@@ -89,7 +89,7 @@ export default function Home() {
         <div className="min-h-screen flex flex-col items-center relative overflow-hidden text-white selection:bg-hollow-pink selection:text-white">
             <Head>
                 <title>Hollow Raffle | Win the BGS 7.5 1st Edition Charizard</title>
-                <meta name="description" content="Win a BGS 7.5 Near Mint+ 1st Edition Charizard worth £19,299.00!" />
+                <meta name="description" content="Win a BGS 7.5 Near Mint+ 1st Edition Charizard worth $26,000.00!" />
                 <link rel="icon" href="/favicon.png" />
             </Head>
 
@@ -145,7 +145,7 @@ export default function Home() {
 
 
                         <p className="text-gray-300 text-sm md:text-lg lg:text-xl mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
-                            Own one of the rarest collectibles in history. A <b>BGS 7.5 Near Mint+</b> First Edition Charizard Holo. Valued at <b className="text-hollow-cyan">£19,299.00</b>. Verified on-chain, exclusively on HollowScan.
+                            Own one of the rarest collectibles in history. A <b>BGS 7.5 Near Mint+</b> First Edition Charizard Holo. Valued at <b className="text-hollow-cyan">$26,000.00</b>. Verified on-chain, exclusively on HollowScan.
                         </p>
 
                         <div className="flex flex-col items-center md:items-start gap-4">
