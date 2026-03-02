@@ -50,7 +50,7 @@ export default function WinnerDisplay({ winner }) {
                             rel="noopener noreferrer"
                             className="mt-10 flex items-center gap-2 text-gray-400 hover:text-white transition group/link"
                         >
-                            <span className="text-sm font-medium border-b border-gray-700 group-hover/link:border-white">Verify Drawing on Solscan</span>
+                            <span className="text-sm font-medium border-b border-gray-700 group-hover/link:border-white">Verify Raffle Entry on Solscan</span>
                             <svg className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                             </svg>
