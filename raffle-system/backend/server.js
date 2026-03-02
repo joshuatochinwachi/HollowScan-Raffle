@@ -42,7 +42,12 @@ app.get('/api/raffle-info', async (req, res) => {
             endDate: RAFFLE_END_DATE,
             totalTickets: count || 0,
             maxTickets: MAX_TICKETS,
-            remainingTickets: Math.max(0, MAX_TICKETS - (count || 0))
+            remainingTickets: Math.max(0, MAX_TICKETS - (count || 0)),
+            winner: process.env.RAFFLE_WINNER_WALLET ? {
+                address: process.env.RAFFLE_WINNER_WALLET,
+                ticketId: process.env.RAFFLE_WINNER_TICKET_ID,
+                tx: process.env.RAFFLE_WINNER_TX
+            } : null
         });
     } catch (err) {
         console.error('Error fetching raffle info:', err);
@@ -51,7 +56,12 @@ app.get('/api/raffle-info', async (req, res) => {
             ticketPrice: TICKET_PRICE_USDC,
             endDate: RAFFLE_END_DATE,
             totalTickets: 0,
-            maxTickets: MAX_TICKETS
+            maxTickets: MAX_TICKETS,
+            winner: process.env.RAFFLE_WINNER_WALLET ? {
+                address: process.env.RAFFLE_WINNER_WALLET,
+                ticketId: process.env.RAFFLE_WINNER_TICKET_ID,
+                tx: process.env.RAFFLE_WINNER_TX
+            } : null
         });
     }
 });

@@ -3,6 +3,7 @@ import Head from 'next/head';
 import WalletButton from '../components/WalletButton';
 import BuyTicketButton from '../components/BuyTicketButton';
 import HeroSlider from '../components/HeroSlider';
+import WinnerDisplay from '../components/WinnerDisplay';
 import { useWallet } from '@solana/wallet-adapter-react';
 
 export default function Home() {
@@ -129,17 +130,23 @@ export default function Home() {
 
                         {/* Countdown Timer */}
                         <div className="flex gap-2 md:gap-4 mb-8 justify-center md:justify-start">
-                            {[
-                                { label: 'Days', value: timeLeft.days },
-                                { label: 'Hours', value: timeLeft.hours },
-                                { label: 'Minutes', value: timeLeft.minutes },
-                                { label: 'Seconds', value: timeLeft.seconds }
-                            ].map((item, i) => (
-                                <div key={i} className="flex flex-col items-center bg-black/40 border border-gray-700 p-2 md:p-3 rounded-lg min-w-[60px] md:min-w-[70px] backdrop-blur-sm">
-                                    <span className="text-xl md:text-2xl font-bold font-mono text-hollow-cyan">{String(item.value).padStart(2, '0')}</span>
-                                    <span className="text-[10px] md:text-xs text-gray-400 uppercase tracking-wider">{item.label}</span>
+                            {raffleInfo?.winner ? (
+                                <div className="px-6 py-3 bg-hollow-pink/20 border border-hollow-pink/40 rounded-xl backdrop-blur-md">
+                                    <span className="text-2xl font-black brand-font text-hollow-pink uppercase tracking-widest">RAFFLE ENDED</span>
                                 </div>
-                            ))}
+                            ) : (
+                                [
+                                    { label: 'Days', value: timeLeft.days },
+                                    { label: 'Hours', value: timeLeft.hours },
+                                    { label: 'Minutes', value: timeLeft.minutes },
+                                    { label: 'Seconds', value: timeLeft.seconds }
+                                ].map((item, i) => (
+                                    <div key={i} className="flex flex-col items-center bg-black/40 border border-gray-700 p-2 md:p-3 rounded-lg min-w-[60px] md:min-w-[70px] backdrop-blur-sm">
+                                        <span className="text-xl md:text-2xl font-bold font-mono text-hollow-cyan">{String(item.value).padStart(2, '0')}</span>
+                                        <span className="text-[10px] md:text-xs text-gray-400 uppercase tracking-wider">{item.label}</span>
+                                    </div>
+                                ))
+                            )}
                         </div>
 
 
@@ -148,40 +155,42 @@ export default function Home() {
                             Own one of the rarest collectibles in history. A <b>BGS 7.5 Near Mint+</b> First Edition Charizard Holo. Valued at <b className="text-hollow-cyan">$26,000.00</b>. Verified on-chain, exclusively on HollowScan.
                         </p>
 
-                        <div className="flex flex-col items-center md:items-start gap-4">
-                            {!publicKey ? (
-                                <div className="glass-card p-6 rounded-2xl border border-gray-600/50 text-center w-full max-w-md">
-                                    <p className="text-gray-300 mb-4">Connect your wallet to enter the draw</p>
-                                    <div className="animate-bounce">👇</div>
-                                </div>
-                            ) : (
-                                <div className="w-full max-w-md space-y-6">
-                                    <BuyTicketButton onPurchaseSuccess={() => { fetchTickets(); fetchUserTickets(); }} />
-
-                                    {/* User Tickets Display */}
-                                    <div className="glass-panel p-4 rounded-xl border border-hollow-cyan/30 bg-hollow-cyan/5">
-                                        <div className="flex justify-between items-center mb-2">
-                                            <h3 className="text-hollow-cyan font-bold uppercase tracking-wider text-sm">My Tickets</h3>
-                                            <span className="bg-hollow-cyan/20 text-hollow-cyan text-xs font-bold px-2 py-1 rounded-full">{userTickets.length} Entries</span>
-                                        </div>
-                                        {userTickets.length > 0 ? (
-                                            <div className="flex flex-wrap gap-2 max-h-32 overflow-y-auto pr-2 custom-scrollbar">
-                                                {userTickets.map((ticket) => (
-                                                    <span key={ticket.id} className="text-xs bg-black/40 border border-gray-700 text-gray-300 px-2 py-1 rounded font-mono">
-                                                        #{ticket.id}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        ) : (
-                                            <p className="text-gray-400 text-xs text-center py-2">No tickets purchased yet</p>
-                                        )}
+                        {!raffleInfo?.winner && (
+                            <div className="flex flex-col items-center md:items-start gap-4">
+                                {!publicKey ? (
+                                    <div className="glass-card p-6 rounded-2xl border border-gray-600/50 text-center w-full max-w-md">
+                                        <p className="text-gray-300 mb-4">Connect your wallet to enter the draw</p>
+                                        <div className="animate-bounce">👇</div>
                                     </div>
-                                </div>
-                            )}
-                            <p className="text-xs text-gray-500 uppercase tracking-widest mt-2">
-                                Verified • Transparent • Immutable
-                            </p>
-                        </div>
+                                ) : (
+                                    <div className="w-full max-w-md space-y-6">
+                                        <BuyTicketButton onPurchaseSuccess={() => { fetchTickets(); fetchUserTickets(); }} />
+
+                                        {/* User Tickets Display */}
+                                        <div className="glass-panel p-4 rounded-xl border border-hollow-cyan/30 bg-hollow-cyan/5">
+                                            <div className="flex justify-between items-center mb-2">
+                                                <h3 className="text-hollow-cyan font-bold uppercase tracking-wider text-sm">My Tickets</h3>
+                                                <span className="bg-hollow-cyan/20 text-hollow-cyan text-xs font-bold px-2 py-1 rounded-full">{userTickets.length} Entries</span>
+                                            </div>
+                                            {userTickets.length > 0 ? (
+                                                <div className="flex flex-wrap gap-2 max-h-32 overflow-y-auto pr-2 custom-scrollbar">
+                                                    {userTickets.map((ticket) => (
+                                                        <span key={ticket.id} className="text-xs bg-black/40 border border-gray-700 text-gray-300 px-2 py-1 rounded font-mono">
+                                                            #{ticket.id}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            ) : (
+                                                <p className="text-gray-400 text-xs text-center py-2">No tickets purchased yet</p>
+                                            )}
+                                        </div>
+                                    </div>
+                                )}
+                                <p className="text-xs text-gray-500 uppercase tracking-widest mt-2">
+                                    Verified • Transparent • Immutable
+                                </p>
+                            </div>
+                        )}
                     </div>
 
                     {/* Right: Floating Card Slider */}
@@ -190,39 +199,46 @@ export default function Home() {
                     </div>
                 </div>
 
-                {/* Stats Dashboard */}
-                <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {/* Stat Card 1 */}
-                    <div className="glass-card p-6 rounded-2xl flex flex-col items-center justify-center text-center card-hover">
-                        <span className="text-gray-400 text-sm uppercase tracking-wider mb-2">Entry Price</span>
-                        <div className="text-4xl font-black text-white brand-font">2 USDC</div>
-                        <span className="text-xs text-hollow-cyan mt-1">Fixed Rate</span>
-                    </div>
+                {/* Winner Display Section */}
+                {raffleInfo?.winner && (
+                    <WinnerDisplay winner={raffleInfo.winner} />
+                )}
 
-                    {/* Stat Card 2: Progress */}
-                    <div className="glass-card p-6 rounded-2xl flex flex-col justify-center card-hover md:col-span-2">
-                        <div className="flex justify-between items-end mb-4">
-                            <div>
-                                <span className="text-gray-400 text-sm uppercase tracking-wider block mb-1">Tickets Sold</span>
-                                <div className="text-3xl font-black text-white brand-font">
-                                    {soldTickets.toLocaleString()} <span className="text-gray-600 text-xl">/ {maxTickets.toLocaleString()}</span>
+                {/* Stats Dashboard */}
+                {!raffleInfo?.winner && (
+                    <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {/* Stat Card 1 */}
+                        <div className="glass-card p-6 rounded-2xl flex flex-col items-center justify-center text-center card-hover">
+                            <span className="text-gray-400 text-sm uppercase tracking-wider mb-2">Entry Price</span>
+                            <div className="text-4xl font-black text-white brand-font">2 USDC</div>
+                            <span className="text-xs text-hollow-cyan mt-1">Fixed Rate</span>
+                        </div>
+
+                        {/* Stat Card 2: Progress */}
+                        <div className="glass-card p-6 rounded-2xl flex flex-col justify-center card-hover md:col-span-2">
+                            <div className="flex justify-between items-end mb-4">
+                                <div>
+                                    <span className="text-gray-400 text-sm uppercase tracking-wider block mb-1">Tickets Sold</span>
+                                    <div className="text-3xl font-black text-white brand-font">
+                                        {soldTickets.toLocaleString()} <span className="text-gray-600 text-xl">/ {maxTickets.toLocaleString()}</span>
+                                    </div>
+                                </div>
+                                <div className="text-right">
+                                    <span className="text-hollow-pink font-bold text-xl">{remainingTickets.toLocaleString()}</span>
+                                    <span className="text-gray-500 text-xs block uppercase tracking-wider">Remaining</span>
                                 </div>
                             </div>
-                            <div className="text-right">
-                                <span className="text-hollow-pink font-bold text-xl">{remainingTickets.toLocaleString()}</span>
-                                <span className="text-gray-500 text-xs block uppercase tracking-wider">Remaining</span>
+
+                            {/* Progress Bar */}
+                            <div className="w-full h-4 bg-gray-800 rounded-full overflow-hidden border border-gray-700">
+                                <div
+                                    className="h-full bg-gradient-to-r from-hollow-pink via-hollow-purple to-hollow-cyan rounded-full transition-all duration-1000 ease-out"
+                                    style={{ width: `${Math.max(5, progressPercent)}%` }} // Min 5% so visualization is visible
+                                ></div>
                             </div>
                         </div>
-
-                        {/* Progress Bar */}
-                        <div className="w-full h-4 bg-gray-800 rounded-full overflow-hidden border border-gray-700">
-                            <div
-                                className="h-full bg-gradient-to-r from-hollow-pink via-hollow-purple to-hollow-cyan rounded-full transition-all duration-1000 ease-out"
-                                style={{ width: `${Math.max(5, progressPercent)}%` }} // Min 5% so visualization is visible
-                            ></div>
-                        </div>
                     </div>
-                </div>
+                )}
 
                 {/* Features */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-8">
